@@ -1,0 +1,64 @@
+<div class="all_container">
+  <header id="main_header">Shopping list</header>
+  <input type="text" id="search_input" placeholder="Search" [(ngModel)]="searching_name" name="searching_name">
+  <table>
+    <tr>
+      <th>№</th>
+      <th class="longTH">Name</th>
+      <th class="longTH">Price</th>
+      <th class="longTH">Number</th>
+      <th style="margin-right: 20px;">Edit</th>
+      <th>Delete</th>
+    </tr>
+    <tr *ngFor="let prod of listArr | filterPipe: searching_name ; index as i">
+      <td>{{i+1}}</td>
+      <td class="longTH" >{{prod.product_name}}</td>
+      <td class="longTH">{{prod.product_price}} грн</td>
+      <td class="longTH">{{prod.product_count}}</td>
+      <td><button id="edit_product" (click)="editChanges(prod)">Edit</button></td>
+      <td><button id="delete_product" (click)="deleteProduct(prod)">Delete</button></td>
+    </tr>
+  </table>
+  <button id="all_count" (click)="doVisibleVAC()">Count</button>
+  <button id="add_product_vis" (click)="doVisibleADI()">Add product</button>
+</div>
+
+<div class="dark_display" [style.display]="visibilityADI === false ? 'none' : 'flex'">
+  <div class="add_product_inputs">
+    <span id="add_or_edit_product" [textContent]="add_or_edit === false ? 'Add product' : 'Edit product'"></span>
+
+    <form [formGroup]="addForm" (ngSubmit)="submit()">
+
+      <div class="list_mane_all">
+        <span class="title_list-inp">List Name</span>
+        <input class="inputs_add_or_edit" type="text" [(ngModel)]="list_name" name="list_name" formControlName="name"
+          pattern="\w{2,25}" placeholder="Write product name" autocomplete="off">
+      </div>
+
+      <div class="list_mane_all">
+        <span class="title_list-inp">List price</span>
+        <input class="inputs_add_or_edit" type="text" [(ngModel)]="list_price" name="list_price" formControlName="price"
+          pattern="^(\d{1,5}|\d{1,5}\.\d{1,2})$" placeholder="Write product price" autocomplete="off">
+      </div>
+
+      <div class="product_count">
+          <button class="buttons_count" (click)="minus_count()">-</button>
+          <span>{{product_count}}</span>
+          <button class="buttons_count" (click)="plus_count()">+</button>
+      </div>
+
+      <button type="submit" id="add_list_button" [disabled]="!addForm.valid" 
+      [textContent]="add_or_edit === false ? 'Add product' : 'Edit product'" (click)="add_product_or_edit()"></button>
+    </form>
+    <button id="close_alert" (click)="close_alert()">x</button>
+  </div>
+</div>
+
+<div class="darl_disply_count" [style.display]="visible_alert_count === false ? 'none' : 'flex'">
+  <div class="alert_count">
+    <span id="final_count">{{all_count}}</span>
+    <button id="close_alert" (click)="close_alert()" style="left: 93%; top: 7px;">x</button>
+  </div>
+</div>
+
+

@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "product_name": "meat",
+      "product_price": 90,
+      "product_count": 3,
+      "id": 2
+    },
+    {
+      "product_name": "water",
+      "product_price": 16.75,
+      "product_count": 5,
+      "id": 3
+    },
+    {
+      "product_name": "corn",
+      "product_price": 28.6,
+      "product_count": 1,
+      "id": 4
+    }
+  ]
+}
