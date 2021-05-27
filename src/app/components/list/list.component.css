@@ -168,8 +168,8 @@ table{
     border: none;
     border-radius: 100%;
     position: absolute;
-    top: 20px;
-    left: 92%;
+    top: 10px;
+    left: 2%;
 }
 
 .darl_disply_count{
@@ -207,6 +207,10 @@ border-radius: 3px;
     .add_product_inputs{
         width: 60%;
         left: 20%;
+    }
+    .alert_count{
+        width: 90%;
+        left: 5%;
     }
 }
 
