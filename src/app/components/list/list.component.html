@@ -13,7 +13,7 @@
     <tr *ngFor="let prod of listArr | filterPipe: searching_name ; index as i">
       <td>{{i+1}}</td>
       <td class="longTH" >{{prod.product_name}}</td>
-      <td class="longTH">{{prod.product_price}} грн</td>
+      <td class="longTH">{{prod.product_price}} UAH</td>
       <td class="longTH">{{prod.product_count}}</td>
       <td><button id="edit_product" (click)="editChanges(prod)">Edit</button></td>
       <td><button id="delete_product" (click)="deleteProduct(prod)">Delete</button></td>
@@ -56,7 +56,7 @@
 
 <div class="darl_disply_count" [style.display]="visible_alert_count === false ? 'none' : 'flex'">
   <div class="alert_count">
-    <span id="final_count">{{all_count}}</span>
+    <span id="final_count">{{all_count}} UAH</span>
     <button id="close_alert" (click)="close_alert()" style="left: 93%; top: 7px;">x</button>
   </div>
 </div>
