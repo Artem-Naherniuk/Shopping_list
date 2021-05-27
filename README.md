@@ -27,3 +27,4 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice.
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 #shopping_list_task_test
 # shopping_list_test_task
+# shopping_list
